@@ -15,7 +15,7 @@ describe "OmniAuth::Strategies::LinkedIn" do
     end
 
     it 'has correct request token path' do
-      subject.options.client_options.request_token_path.should eq('/uas/oauth/requestToken')
+      subject.options.client_options.request_token_path.should eq('/uas/oauth/requestToken?scope=r_fullprofile+r_emailaddress')
     end
 
     it 'has correct access token path' do

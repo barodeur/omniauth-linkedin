@@ -7,12 +7,12 @@ module OmniAuth
 
       option :client_options, {
         :site => 'https://api.linkedin.com',
-        :request_token_path => '/uas/oauth/requestToken',
+        :request_token_path => '/uas/oauth/requestToken?scope=r_fullprofile+r_emailaddress',
         :access_token_path => '/uas/oauth/accessToken',
         :authorize_url => 'https://www.linkedin.com/uas/oauth/authenticate'
       }
 
-      option :fields, ["id", "first-name", "last-name", "headline", "industry", "picture-url", "public-profile-url"]
+      option :fields, ["id", "first-name", "last-name", "headline", "industry", "picture-url", "public-profile-url", 'email-address']
 
       uid{ raw_info['id'] }
 
@@ -26,7 +26,8 @@ module OmniAuth
           :industry => raw_info['industry'],
           :urls => {
             'public_profile' => raw_info['publicProfileUrl']
-          }
+          },
+          :email => raw_info['emailAddress']
         }
       end
 
