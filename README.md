@@ -1,3 +1,5 @@
+_forked in order to get user email with the new scopes (summer 2012). unmaintained_
+
 # OmniAuth LinkedIn
 
 This gem contains the LinkedIn strategy for OmniAuth 1.0 .
